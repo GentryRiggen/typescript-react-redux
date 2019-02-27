@@ -1,16 +1,17 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const path = require('path');
+const path = require('path')
 
-const APP_PATH = path.resolve(__dirname, 'src');
-const BUILD_PATH = path.resolve(__dirname, 'build');
+const APP_PATH = path.resolve(__dirname, 'src')
+const BUILD_PATH = path.resolve(__dirname, 'build')
+const PUBLIC_PATH = path.resolve(__dirname, 'public')
 
 module.exports = {
   entry: APP_PATH,
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     path: BUILD_PATH,
   },
 
@@ -19,7 +20,7 @@ module.exports = {
     alias: {
       domains: path.resolve(APP_PATH, 'domains'),
       lib: path.resolve(APP_PATH, 'lib'),
-    }
+    },
   },
 
   module: {
@@ -31,10 +32,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -46,14 +44,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'index.html',
+      template: path.resolve(PUBLIC_PATH, 'index.html'),
     }),
     new ForkTsCheckerWebpackPlugin(),
     new CopyWebpackPlugin([
       {
-        from: 'images',
+        from: path.resolve(PUBLIC_PATH, 'images'),
         to: path.resolve(BUILD_PATH, 'images'),
       },
     ]),
   ],
-};
+}

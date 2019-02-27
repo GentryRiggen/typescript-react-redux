@@ -26,7 +26,8 @@ export class StartUp extends PureComponent<IStateProps> {
 
     return (
       <>
-        <h1>App Initializing</h1>
+        <img src="images/apple-touch-icon.png" />
+        <h1>App Initializing...</h1>
       </>
     )
   }

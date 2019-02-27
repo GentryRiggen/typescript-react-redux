@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "prebuild": "rm -rf build",
     "build": "webpack --progress --colors --mode=production",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx,.js\" --source-maps inline",
     "build:types": "tsc --emitDeclarationOnly",
