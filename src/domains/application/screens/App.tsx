@@ -4,7 +4,7 @@ export default class App extends PureComponent {
   render() {
     return (
       <>
-        <img src="images/apple-touch-icon.png" />
+        <img src="images/typescript.png" />
         <h1>App Initialized</h1>
       </>
     )

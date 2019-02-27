@@ -49,8 +49,8 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin(),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(PUBLIC_PATH, 'images'),
-        to: path.resolve(BUILD_PATH, 'images'),
+        from: PUBLIC_PATH,
+        to: BUILD_PATH,
       },
     ]),
   ],
