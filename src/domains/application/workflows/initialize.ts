@@ -4,5 +4,5 @@ import { setApplicationProperties } from 'domains/application/ducks/application.
 export default (): void => {
   setTimeout(() => {
     store.dispatch(setApplicationProperties({ initialized: true }))
-  }, 1000)
+  }, 1)
 }
