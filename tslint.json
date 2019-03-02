@@ -1,5 +1,9 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {
+    "object-literal-sort-keys": false,
+    "no-console": [true]
+  },
   "rules": {
     "arrow-parens": false,
     "arrow-return-shorthand": [false],

@@ -1,4 +1,5 @@
 build
+tcCompiled
 # Logs
 logs
 *.log

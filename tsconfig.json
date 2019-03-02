@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "commonjs",
+    "lib": ["dom", "es6"],
+    "types": ["node", "jest"],
     "jsx": "react",
-    "declaration": true,
-    "outDir": "lib",
+    "outDir": "tsCompiled",
     "strict": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"]
     }
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "build"]
 }

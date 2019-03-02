@@ -5,7 +5,7 @@ import rootReducer from 'lib/store/rootReducer'
 
 const composeEnhancers: any =
   process.env.NODE_ENV === 'development'
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : compose
 
 const store = createStore(rootReducer, undefined, composeEnhancers())
