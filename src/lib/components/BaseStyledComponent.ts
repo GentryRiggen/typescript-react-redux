@@ -1,7 +1,10 @@
-import { HTMLAttributes } from 'react'
+import React from 'react'
 import * as SS from 'styled-system'
+import { HTMLAttributes } from 'react'
 import * as CSS from 'csstype'
 import * as styledComponents from 'styled-components'
+
+import flexibleStyle from 'lib/components/flexibleStyles'
 
 import { ITheme } from 'lib/styles/theme'
 
@@ -42,8 +45,55 @@ export interface IStyledSystem
   flexible?: string
 }
 
-const {
+export const {
   default: styled,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<ITheme>
 
-export default styled
+interface IBaseStyledComponentArgs {
+  styledTag: any
+  displayName: string
+  defaultProps?: object
+  styles?: string
+  variants?: any[]
+}
+
+export default (args: IBaseStyledComponentArgs) => {
+  const component = args.styledTag<IStyledSystem>`
+  ${args.styles};
+  ${args.variants};
+  ${flexibleStyle};
+
+  ${SS.alignContent};
+  ${SS.alignItems};
+  ${SS.alignSelf};
+  ${SS.borderColor};
+  ${SS.borderRadius};
+  ${SS.borders};
+  ${SS.bottom};
+  ${SS.color};
+  ${SS.display};
+  ${SS.flexBasis};
+  ${SS.flexDirection};
+  ${SS.flexWrap};
+  ${SS.flex};
+  ${SS.fontSize};
+  ${SS.height};
+  ${SS.justifyContent};
+  ${SS.justifySelf};
+  ${SS.left};
+  ${SS.maxHeight};
+  ${SS.maxWidth};
+  ${SS.minHeight};
+  ${SS.minWidth};
+  ${SS.order};
+  ${SS.position};
+  ${SS.right};
+  ${SS.space};
+  ${SS.top};
+  ${SS.width};
+  ${SS.zIndex};
+`
+  component.displayName = args.displayName
+  component.defaultProps = args.defaultProps || {}
+  return component
+}
