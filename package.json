@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:web": "webpack-dev-server --config webpack.config.js --mode=development",
+    "start:web": "webpack-dev-server --config webpack.config.js --mode=development --disable-host-check",
     "start": "yarn start:web --progress --colors --open",
     "prebuild": "rm -rf build",
     "build": "webpack --progress --colors --mode=production",
@@ -62,6 +62,7 @@
     "react": "^16.8.3",
     "react-css-loaders": "^0.0.5",
     "react-dom": "^16.8.3",
+    "react-google-login": "^5.0.2",
     "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",

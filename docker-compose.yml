@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:5.7.22
+    environment:
+      MYSQL_ROOT_PASSWORD: yolo99
+      MYSQL_DATABASE: books
+      MYSQL_USER: books
+      MYSQL_PASSWORD: ilovebooks
+    ports:
+      - '3306:3306'
+    restart: always
+    volumes:
+      - my-datavolume:/var/lib/mysql
+volumes:
+  my-datavolume:
