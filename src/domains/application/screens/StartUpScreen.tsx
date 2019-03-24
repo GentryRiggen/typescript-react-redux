@@ -4,8 +4,9 @@ import { createStructuredSelector } from 'reselect'
 
 import { applicationInitializedSelector } from 'domains/application/selectors/application.selectors'
 import { RootState } from 'lib/store/rootReducer'
-import App from 'domains/application/screens/App'
 import initialize from 'domains/application/workflows/initialize'
+import AppScreen from 'domains/application/screens/AppScreen'
+import AppInitializingScreen from 'domains/application/screens/AppInitializingScreen'
 
 interface IStateProps {
   initialized: boolean
@@ -14,22 +15,18 @@ const stateMap = createStructuredSelector<RootState, IStateProps>({
   initialized: applicationInitializedSelector(),
 })
 
-export class StartUp extends PureComponent<IStateProps> {
+export class StartUpScreen extends PureComponent<IStateProps> {
   componentDidMount() {
     initialize()
   }
 
   public render() {
-    if (this.props.initialized) {
-      return <App />
+    if (!this.props.initialized) {
+      return <AppInitializingScreen />
     }
 
-    return (
-      <>
-        <h1>App Initializing...</h1>
-      </>
-    )
+    return <AppScreen />
   }
 }
 
-export default connect<IStateProps, {}, {}, RootState>(stateMap)(StartUp)
+export default connect<IStateProps, {}, {}, RootState>(stateMap)(StartUpScreen)

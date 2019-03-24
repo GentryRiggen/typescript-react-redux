@@ -1,0 +1,6 @@
+export const TOKENS_STORAGE_KEY = 'TOKENS'
+
+export const GET = 'get'
+export const POST = 'post'
+export const PUT = 'put'
+export const DELETE = 'delete'

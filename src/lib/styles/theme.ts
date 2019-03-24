@@ -1,25 +1,23 @@
 import colors, { IColors } from 'lib/styles/colors'
-import { IFlexibleStyles, flexibleStyles } from 'lib/components/flexibleStyles'
-import { ITextStyles, textStyles } from 'lib/components/Text'
+import { IFlexibleStyles } from 'lib/components/flexibleStyles'
+import { textStyles } from 'lib/components/Text'
 import {
-  IViewStyles,
-  viewStyles,
-  IViewHoverStyles,
+  elevationStyles,
+  flexibleStyles,
   viewHoverStyles,
+  viewVariantStyles,
 } from 'lib/components/View'
 
 export interface ITheme {
   colors: IColors
   flexibleStyles: IFlexibleStyles
-  textStyles: ITextStyles
-  viewStyles: IViewStyles
-  viewHoverStyles: IViewHoverStyles
 }
 
 export default {
   colors,
   flexibleStyles,
   textStyles,
-  viewStyles,
+  elevationStyles,
+  viewVariantStyles,
   viewHoverStyles,
 }

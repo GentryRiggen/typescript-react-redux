@@ -1,17 +1,12 @@
-import React from 'react'
-import * as SS from 'styled-system'
 import { HTMLAttributes } from 'react'
-import * as CSS from 'csstype'
-import * as styledComponents from 'styled-components'
+import styled from 'styled-components'
+import * as SS from 'styled-system'
+import { IFlexibleProps, flexibleStyle } from 'lib/components/View'
 
-import flexibleStyle from 'lib/components/flexibleStyles'
-
-import { ITheme } from 'lib/styles/theme'
-
-export interface IHtmlAttributes extends HTMLAttributes<HTMLDivElement> {}
-
-export interface IStyledSystem
-  extends IHtmlAttributes,
+export interface IHtmlImageElementProps
+  extends HTMLAttributes<HTMLImageElement> {}
+interface IBaseProps
+  extends IHtmlImageElementProps,
     SS.AlignContentProps,
     SS.AlignItemsProps,
     SS.AlignSelfProps,
@@ -19,6 +14,7 @@ export interface IStyledSystem
     SS.BorderColorProps,
     SS.BorderProps,
     SS.BorderRadiusProps,
+    SS.BordersProps,
     SS.BottomProps,
     SS.DisplayProps,
     SS.FlexBasisProps,
@@ -26,41 +22,37 @@ export interface IStyledSystem
     SS.FlexProps,
     SS.FlexWrapProps,
     SS.FontSizeProps,
+    SS.FontStyleProps,
+    SS.FontWeightProps,
+    SS.GridAutoFlowProps,
+    SS.GridColumnGapProps,
+    SS.GridRowGapProps,
+    SS.GridTemplatesColumnsProps,
+    SS.GridTemplatesRowsProps,
     SS.HeightProps,
     SS.JustifyContentProps,
     SS.JustifySelfProps,
     SS.LeftProps,
+    SS.LineHeightProps,
     SS.MaxHeightProps,
     SS.MaxWidthProps,
     SS.MinHeightProps,
     SS.MinWidthProps,
     SS.OrderProps,
+    SS.OverflowProps,
     SS.PositionProps,
     SS.RightProps,
     SS.SpaceProps,
+    SS.TextAlignProps,
     SS.TopProps,
+    SS.VerticalAlignProps,
     SS.WidthProps,
     SS.ZIndexProps {
-  color?: CSS.ColorProperty
   flexible?: string
+  'data-test'?: string
 }
 
-export const {
-  default: styled,
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<ITheme>
-
-interface IBaseStyledComponentArgs {
-  styledTag: any
-  displayName: string
-  defaultProps?: object
-  styles?: string
-  variants?: any[]
-}
-
-export default (args: IBaseStyledComponentArgs) => {
-  const component = args.styledTag<IStyledSystem>`
-  ${args.styles};
-  ${args.variants};
+const Image = styled.img<IBaseProps & IFlexibleProps>`
   ${flexibleStyle};
 
   ${SS.alignContent};
@@ -77,23 +69,32 @@ export default (args: IBaseStyledComponentArgs) => {
   ${SS.flexWrap};
   ${SS.flex};
   ${SS.fontSize};
+  ${SS.fontWeight};
+  ${SS.gridAutoFlow};
+  ${SS.gridColumnGap};
+  ${SS.gridRowGap};
+  ${SS.gridTemplateColumns};
+  ${SS.gridTemplateRows}
   ${SS.height};
   ${SS.justifyContent};
   ${SS.justifySelf};
   ${SS.left};
+  ${SS.lineHeight};
   ${SS.maxHeight};
   ${SS.maxWidth};
   ${SS.minHeight};
   ${SS.minWidth};
   ${SS.order};
+  ${SS.overflow};
   ${SS.position};
   ${SS.right};
   ${SS.space};
   ${SS.top};
+  ${SS.verticalAlign};
   ${SS.width};
   ${SS.zIndex};
 `
-  component.displayName = args.displayName
-  component.defaultProps = args.defaultProps || {}
-  return component
-}
+
+Image.displayName = 'Image'
+
+export default Image
