@@ -5,6 +5,7 @@ export interface IColors {
   white: string
   neutral: string
   error: string
+  background: string
 }
 
 export default {
@@ -14,4 +15,5 @@ export default {
   white: '#ffffff',
   neutral: '#dedede',
   error: '#aa0000',
+  background: '#e3e8ec',
 }

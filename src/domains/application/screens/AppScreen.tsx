@@ -8,7 +8,6 @@ import LoginScreen from 'domains/authentication/screens/LoginScreen'
 import { applicationPropSelector } from 'domains/application/selectors/application.selectors'
 import { LOGIN_ROUTE } from 'domains/application/navigation/routes'
 import MainRouter from 'domains/application/navigation/MainRouter'
-import View from 'lib/components/View'
 
 interface IPropsFromState {
   me: number
@@ -19,7 +18,7 @@ const stateMap = createStructuredSelector<any, IPropsFromState>({
 
 export class AppScreen extends Component<IPropsFromState> {
   componentDidMount() {
-    if (this.props.me <= 0 && this.isNotOnLoginRoute()) {
+    if (!this.props.me && this.isNotOnLoginRoute()) {
       history.push('/login', {
         redirectUrl: `${history.location.pathname}${history.location.search}`,
       })
@@ -36,7 +35,7 @@ export class AppScreen extends Component<IPropsFromState> {
           render={({ location }) => (
             <Switch location={location}>
               <Route path={LOGIN_ROUTE} component={LoginScreen} />
-              {me > 0 && <Route component={MainRouter} />}
+              {!!me && <Route component={MainRouter} />}
             </Switch>
           )}
         />

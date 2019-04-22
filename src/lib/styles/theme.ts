@@ -1,6 +1,7 @@
 import colors, { IColors } from 'lib/styles/colors'
 import { IFlexibleStyles } from 'lib/components/flexibleStyles'
 import { textStyles } from 'lib/components/Text'
+import { buttonStyles } from 'lib/components/Button'
 import {
   elevationStyles,
   flexibleStyles,
@@ -14,10 +15,11 @@ export interface ITheme {
 }
 
 export default {
+  buttonStyles,
   colors,
+  elevationStyles,
   flexibleStyles,
   textStyles,
-  elevationStyles,
-  viewVariantStyles,
   viewHoverStyles,
+  viewVariantStyles,
 }

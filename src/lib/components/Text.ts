@@ -61,12 +61,6 @@ export const textStyles = {
     lineHeight: lineHeights.jumbo,
     fontWeight: 700,
   },
-  navLink: {
-    fontSize: fontSizes.subtitle,
-    fontWeight: fontWeights.subtitle,
-    lineHeight: lineHeights.subtitle,
-    color: '#fff',
-  },
   formError: {
     fontSize: fontSizes.caption,
     fontWeight: fontWeights.caption,

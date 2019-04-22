@@ -8,7 +8,7 @@ import store from 'lib/store/store'
 export const mergeOrReplaceEntities = (
   merge: boolean,
   module: IModule,
-  values = [],
+  values: any | any[] = [],
   isArray = false,
 ) => {
   const { schema } = module
